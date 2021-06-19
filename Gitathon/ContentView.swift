@@ -72,8 +72,8 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 160, height: 75
                                , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
+                        .background(Color(red: 0.889, green: 0.106, blue: 0.241))
+                        .foregroundColor(Color(red: 0.999, green: 0.992, blue: 1.0))
                         .cornerRadius(20)
                         
                         Button {
@@ -85,8 +85,8 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 160, height: 75
                                , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.red)
-                        .foregroundColor(.white)
+                        .background(Color(red: 0.844, green: 0.616, blue: 0.013))
+                        .foregroundColor(Color(red: 0.999, green: 0.992, blue: 1.0))
                         .cornerRadius(20)
                     }
                     .padding()
@@ -100,8 +100,8 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 160, height: 75
                                , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.green)
-                        .foregroundColor(.white)
+                        .background(Color(red: 0.226, green: 0.405, blue: 0.806))
+                        .foregroundColor(Color(red: 0.999, green: 0.992, blue: 1.0))
                         .cornerRadius(20)
                         
                         Button {
@@ -113,8 +113,8 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 160, height: 75
                                , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.yellow)
-                        .foregroundColor(.white)
+                        .background(Color(red: 0.157, green: 0.538, blue: 0.046))
+                        .foregroundColor(Color(red: 0.999, green: 0.992, blue: 1.0))
                         .cornerRadius(20)
                     }
                     .padding()
