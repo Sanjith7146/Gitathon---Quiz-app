@@ -11,7 +11,7 @@ struct ContentView: View {
     var questions = [Question(title: "What does YJ Eat?",
                               option1: "Nutella",
                               option2: "Rice",
-                              option3: "cat",
+                              option3: "Broccoli",
                               option4: "iPhone",
                               correctOption: 1),
                      Question(title: "What framework are we using?",
@@ -43,84 +43,99 @@ struct ContentView: View {
     @State var isModalPresented = false
     
     var body: some View {
-        VStack {
-            ProgressView(value: Double(currentQuestion),
-                         total: Double(questions.count))
-                .padding()
-            
-            Text(questions[currentQuestion].title)
-                .padding()
-            
-            HStack {
-                VStack {
-                    Button {
-                        didTapOption(optionNumber: 1)
-                    } label: {
-                        Image(systemName: "triangle.fill")
-                        Text(questions[currentQuestion].option1)
+        ZStack {
+            Color(red: 0.871, green: 0.859, blue: 0.824).ignoresSafeArea()
+            VStack {
+                ProgressView(value: Double(currentQuestion),
+                             total: Double(questions.count))
+                    .padding()
+                Text("")
+                Text("")
+                Text("")
+                Text(questions[currentQuestion].title)
+                    .fontWeight(.heavy)
+                    .font(.system(size: 20))
+                    .padding()
+                    .background(Color(red: 0.6901960784313725, green: 0.7686274509803922, blue: 0.6941176470588235))
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.5882352941176471, green: 0.40784313725490196, blue: 0.44313725490196076)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(20)
+                    .padding()
+                
+                HStack {
+                    VStack {
+                        Button {
+                            didTapOption(optionNumber: 1)
+                        } label: {
+                            Image(systemName: "triangle.fill")
+                            Text(questions[currentQuestion].option1)
+                        }
+                        .padding()
+                        .frame(width: 160, height: 75
+                               , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        
+                        Button {
+                            didTapOption(optionNumber: 2)
+                        } label: {
+                            Image(systemName: "circle.fill")
+                            Text(questions[currentQuestion].option2)
+                        }
+                        .padding()
+                        .frame(width: 160, height: 75
+                               , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
                     }
                     .padding()
-                    .frame(width: 160, height: 75
-                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    
-                    Button {
-                        didTapOption(optionNumber: 2)
-                    } label: {
-                        Image(systemName: "circle.fill")
-                        Text(questions[currentQuestion].option2)
+                    VStack {
+                        Button {
+                            didTapOption(optionNumber: 3)
+                        } label: {
+                            Image(systemName: "diamond.fill")
+                            Text(questions[currentQuestion].option3)
+                        }
+                        .padding()
+                        .frame(width: 160, height: 75
+                               , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        
+                        Button {
+                            didTapOption(optionNumber: 4)
+                        } label: {
+                            Image(systemName: "square.fill")
+                            Text(questions[currentQuestion].option4)
+                        }
+                        .padding()
+                        .frame(width: 160, height: 75
+                               , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .background(Color.yellow)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
                     }
                     .padding()
-                    .frame(width: 160, height: 75
-                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                }
-                .padding()
-                VStack {
-                    Button {
-                        didTapOption(optionNumber: 3)
-                    } label: {
-                        Image(systemName: "diamond.fill")
-                        Text(questions[currentQuestion].option3)
-                    }
-                    .padding()
-                    .frame(width: 160, height: 75
-                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    
-                    Button {
-                        didTapOption(optionNumber: 4)
-                    } label: {
-                        Image(systemName: "square.fill")
-                        Text(questions[currentQuestion].option4)
-                    }
-                    .padding()
-                    .frame(width: 160, height: 75
-                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.yellow)
-                    .foregroundColor(.white)
                 }
                 .padding()
             }
-            .padding()
+            .alert(isPresented: $isAlertPresented) {
+                
+                Alert(title: Text(isCorrect ? "Correct" : "Wrong"),
+                      message: Text(isCorrect ? "Congrats, you are kinda smart." : "This is outrageous, with such easy questions, how can you be getting this wrong?!"),
+                      dismissButton: .default(Text("OK")) {
+                        currentQuestion += 1
+                        
+                        if currentQuestion == questions.count {
+                            isModalPresented = true
+                            currentQuestion = 0
+                        }
+                      })
+            }.sheet(isPresented: $isModalPresented) {
+                ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
         }
-        .alert(isPresented: $isAlertPresented) {
-            
-            Alert(title: Text(isCorrect ? "Correct" : "Wrong"),
-                  message: Text(isCorrect ? "Congrats, you are kinda smart." : "This is outrageous, with such easy questions, how can you be getting this wrong?!"),
-                  dismissButton: .default(Text("OK")) {
-                    currentQuestion += 1
-                    
-                    if currentQuestion == questions.count {
-                        isModalPresented = true
-                        currentQuestion = 0
-                    }
-                  })
-        }.sheet(isPresented: $isModalPresented) {
-            ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
         }
     }
     

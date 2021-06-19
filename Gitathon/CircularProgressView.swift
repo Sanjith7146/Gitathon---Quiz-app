@@ -16,14 +16,14 @@ struct CircularProgressView: View {
             Circle()
                 .stroke(lineWidth: 20)
                 .opacity(0.3)
-                .foregroundColor(.red)
+                .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.5882352941176471, green: 0.40784313725490196, blue: 0.44313725490196076)/*@END_MENU_TOKEN@*/)
 
             Circle()
                 .trim(from: 0.0, to: progress)
                 .stroke(style: .init(lineWidth: 20.0,
                                      lineCap: .round,
                                      lineJoin: .round))
-                .foregroundColor(Color.red)
+                .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.5882352941176471, green: 0.40784313725490196, blue: 0.44313725490196076)/*@END_MENU_TOKEN@*/)
                 .rotationEffect(Angle(degrees: 270.0))
         }
         .padding()

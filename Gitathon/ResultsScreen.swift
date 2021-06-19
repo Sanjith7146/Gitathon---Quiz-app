@@ -13,12 +13,22 @@ struct ResultsScreen: View {
     var totalQuestions: Int
     
     var body: some View {
-        VStack {
-            CircularProgressView(progress: CGFloat(score) / CGFloat(totalQuestions))
-                .frame(width: 150.0, height: 150.0)
-            
-            Text("You got")
-            Text("\(score)/\(totalQuestions)")
+        ZStack {
+            Color(red: 0.871, green: 0.859, blue: 0.824).ignoresSafeArea()
+            VStack {
+                CircularProgressView(progress: CGFloat(score) / CGFloat(totalQuestions))
+                    .frame(width: 180.0, height: 180.0)
+                Text("")
+                Text("")
+                Text("You got \(score)/\(totalQuestions)")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 30))
+                    .padding()
+                    .background(Color(red: 0.6901960784313725, green: 0.7686274509803922, blue: 0.6941176470588235))
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.5882352941176471, green: 0.40784313725490196, blue: 0.44313725490196076)/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(20)
+                    .padding()
+            }
         }
     }
 }
