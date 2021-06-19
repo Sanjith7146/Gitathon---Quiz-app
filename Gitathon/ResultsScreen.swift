@@ -14,6 +14,9 @@ struct ResultsScreen: View {
     
     var body: some View {
         VStack {
+            CircularProgressView(progress: CGFloat(score) / CGFloat(totalQuestions))
+                .frame(width: 150.0, height: 150.0)
+            
             Text("You got")
             Text("\(score)/\(totalQuestions)")
         }
