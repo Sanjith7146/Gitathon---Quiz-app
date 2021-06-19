@@ -12,6 +12,7 @@
 		C535547C267D9C2400A2B4B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C535547B267D9C2400A2B4B0 /* Assets.xcassets */; };
 		C535547F267D9C2400A2B4B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C535547E267D9C2400A2B4B0 /* Preview Assets.xcassets */; };
 		C5355487267D9D5600A2B4B0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5355486267D9D5600A2B4B0 /* Question.swift */; };
+		C5355489267D9E9F00A2B4B0 /* ResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5355488267D9E9F00A2B4B0 /* ResultsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C535547E267D9C2400A2B4B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5355480267D9C2400A2B4B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5355486267D9D5600A2B4B0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C5355488267D9E9F00A2B4B0 /* ResultsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				C5355477267D9C2000A2B4B0 /* GitathonApp.swift */,
 				C5355479267D9C2000A2B4B0 /* ContentView.swift */,
+				C5355488267D9E9F00A2B4B0 /* ResultsScreen.swift */,
 				C5355486267D9D5600A2B4B0 /* Question.swift */,
 				C535547B267D9C2400A2B4B0 /* Assets.xcassets */,
 				C5355480267D9C2400A2B4B0 /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5355489267D9E9F00A2B4B0 /* ResultsScreen.swift in Sources */,
 				C5355487267D9D5600A2B4B0 /* Question.swift in Sources */,
 				C535547A267D9C2000A2B4B0 /* ContentView.swift in Sources */,
 				C5355478267D9C2000A2B4B0 /* GitathonApp.swift in Sources */,

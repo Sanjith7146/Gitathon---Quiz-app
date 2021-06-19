@@ -97,6 +97,8 @@ struct ContentView: View {
                         currentQuestion = 0
                     }
                   })
+        }.sheet(isPresented: $isModalPresented) {
+            ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
         }
     }
     
