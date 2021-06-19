@@ -11,8 +11,8 @@ struct ContentView: View {
     var questions = [Question(title: "What does YJ Eat?",
                               option1: "Nutella",
                               option2: "Rice",
-                              option3: "Brocoli",
-                              option4: "IPhone",
+                              option3: "cat",
+                              option4: "iPhone",
                               correctOption: 1),
                      Question(title: "What framework are we using?",
                               option1: "UIKit",
@@ -59,12 +59,23 @@ struct ContentView: View {
                         Image(systemName: "triangle.fill")
                         Text(questions[currentQuestion].option1)
                     }
+                    .padding()
+                    .frame(width: 160, height: 75
+                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    
                     Button {
                         didTapOption(optionNumber: 2)
                     } label: {
                         Image(systemName: "circle.fill")
                         Text(questions[currentQuestion].option2)
                     }
+                    .padding()
+                    .frame(width: 160, height: 75
+                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.red)
+                    .foregroundColor(.white)
                 }
                 .padding()
                 VStack {
@@ -74,12 +85,23 @@ struct ContentView: View {
                         Image(systemName: "diamond.fill")
                         Text(questions[currentQuestion].option3)
                     }
+                    .padding()
+                    .frame(width: 160, height: 75
+                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    
                     Button {
                         didTapOption(optionNumber: 4)
                     } label: {
                         Image(systemName: "square.fill")
                         Text(questions[currentQuestion].option4)
                     }
+                    .padding()
+                    .frame(width: 160, height: 75
+                           , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.yellow)
+                    .foregroundColor(.white)
                 }
                 .padding()
             }
