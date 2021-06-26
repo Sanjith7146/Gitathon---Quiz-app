@@ -46,9 +46,11 @@ struct ContentView: View {
         ZStack {
             Color(red: 0.871, green: 0.859, blue: 0.824).ignoresSafeArea()
             VStack {
-                ProgressView(value: Double(currentQuestion),
-                             total: Double(questions.count))
-                    .padding()
+                withAnimation{
+                    ProgressView(value: Double(currentQuestion),
+                                 total: Double(questions.count))
+                        .padding()
+                }
                 Text("")
                 Text("")
                 Text("")
@@ -126,16 +128,18 @@ struct ContentView: View {
                 Alert(title: Text(isCorrect ? "Correct" : "Wrong"),
                       message: Text(isCorrect ? "Congrats, you are kinda smart." : "This is outrageous, with such easy questions, how can you be getting this wrong?!"),
                       dismissButton: .default(Text("OK")) {
-                        currentQuestion += 1
-                        
-                        if currentQuestion == questions.count {
-                            isModalPresented = true
-                            currentQuestion = 0
+                        withAnimation{
+                            currentQuestion += 1
+                            
+                            if currentQuestion == questions.count {
+                                isModalPresented = true
+                                currentQuestion = 0
+                            }
                         }
                       })
             }.sheet(isPresented: $isModalPresented) {
                 ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
-        }
+            }
         }
     }
     
